@@ -18,13 +18,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate ISO
-        uses: ublue-os/isogenerator-old@v2.3.1
+        uses: ublue-os/isogenerator@main
         id: isogenerator
         with:
-          image-name: ${{ github.event.repository.name }}
-          installer-repo: releases
-          installer-major-version: 39
-          boot-menu-path: boot_menu.yml
+          IMAGE_NAME: ${{ github.event.repository.name }}
+          IMAGE_REPO: 'quay.io/luisarizmendi'
+          VARIANT: 'Kinoite'
+          VERSION: ${{ matrix.version }}
+          ACTION_REPO: ${{ github.repository }}
+          ACTION_REF: ${{ github.ref }}
       - name: install github CLI
         run: |
           sudo dnf install 'dnf-command(config-manager)' -y
