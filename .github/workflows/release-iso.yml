@@ -8,7 +8,7 @@ on:
 name: release-iso
 jobs:
   release-iso:
-    name: Generate and Release ISOs
+    name: Generate and Release ISO
     runs-on: ubuntu-latest
     permissions:
       contents: write
