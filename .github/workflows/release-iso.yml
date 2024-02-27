@@ -22,7 +22,6 @@ jobs:
         id: isogenerator
         with:
           image-name: ${{ github.event.repository.name }}
-          image_repo: "quay.io/luisarizmendi"
           installer-repo: releases
           installer-major-version: 39
           boot-menu-path: boot_menu.yml
