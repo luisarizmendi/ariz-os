@@ -17,11 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate ISO
-        uses: ublue-os/isogenerator-old@v2.3.1
+        uses: luisarizmendi/isogenerator-old@v2.3.1
         id: isogenerator
         with:
-          #image-name: ${{ github.event.repository.name }}
-          image-name: 'quay.io/luisarizmendi/ariz-os:latest'
+          image-name: ${{ github.event.repository.name }}
+          
           installer-repo: releases
           installer-major-version: 39
           boot-menu-path: boot_menu.yml
