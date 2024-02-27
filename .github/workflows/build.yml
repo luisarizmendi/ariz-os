@@ -30,7 +30,7 @@ jobs:
         with:
           recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
-          registry_token: ${{ github.secrets.QUAY }}
+          registry_token: ${{ secrets.QUAY }}
           pr_event_number: ${{ github.event.number }}
           registry: quay.io
           
