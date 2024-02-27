@@ -4,7 +4,6 @@ on:
       - "boot_menu.yml"
       - ".github/workflows/release-iso.yml"
   workflow_dispatch:
-
 name: release-iso
 jobs:
   release-iso:
@@ -18,15 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate ISO
-        uses: ublue-os/isogenerator@main
+        uses: ublue-os/isogenerator-old@v2.3.1
         id: isogenerator
         with:
-          IMAGE_NAME: ${{ github.event.repository.name }}
-          IMAGE_REPO: 'quay.io/luisarizmendi'
-          VARIANT: 'Kinoite'
-          VERSION: ${{ matrix.version }}
-          ACTION_REPO: ${{ github.repository }}
-          ACTION_REF: ${{ github.ref }}
+          #image-name: ${{ github.event.repository.name }}
+          image-name: 'quay.io/luisarizmendi/ariz-os:latest'
+          installer-repo: releases
+          installer-major-version: 39
+          boot-menu-path: boot_menu.yml
       - name: install github CLI
         run: |
           sudo dnf install 'dnf-command(config-manager)' -y
